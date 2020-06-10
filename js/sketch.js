@@ -43,7 +43,7 @@ function draw() {
         //Torso armor
         rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
         //Left arm armor
-        rect(pose.leftShoulder.x, pose.leftShoulder.y, 30, arm);
+        line(pose.leftShoulder.x, pose.leftShoulder.y, pose.leftElbow.x, pose.leftElbow.y);
 
     }
 }
