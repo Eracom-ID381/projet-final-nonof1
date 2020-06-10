@@ -28,6 +28,16 @@ function draw() {
     if (pose) {
         fill(0, 255, 0);
         ellipse(pose.rightEye.x, pose.rightEye.y, 30);
+        ellipse(pose.leftEye.x, pose.leftEye.y, 30);
+
+        let shoulderWidth;
+        let torso;
+
+        shoulderWidth = pose.rightShoulder.x - pose.leftShoulder.x;
+        torso = pose.leftHip.y - pose.leftShoulder.y;
+
+        rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
+
     }
 }
 
