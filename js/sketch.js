@@ -32,11 +32,16 @@ function draw() {
 
         let shoulderWidth;
         let torso;
+        let arm;
 
         shoulderWidth = pose.rightShoulder.x - pose.leftShoulder.x;
         torso = pose.leftHip.y - pose.leftShoulder.y;
+        arm = pose.leftElbow.y - pose.leftShoulder.y;
 
+        //Torso armor
         rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
+        //Left arm armor
+        rect(pose.leftShoulder.x, pose.leftShoulder.y, 30, arm);
 
     }
 }
