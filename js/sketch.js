@@ -26,9 +26,44 @@ function poseDetected(poses) {
 function draw() {
     image(video, 0, 0);
     if (pose) {
-        fill(0, 255, 0);
-        ellipse(pose.rightEye.x, pose.rightEye.y, 30);
-        ellipse(pose.leftEye.x, pose.leftEye.y, 30);
+
+        //Glasses
+        colorMode(HSB, 100);
+        strokeWeight(6);
+        stroke(0);
+        line(pose.leftEye.x, pose.leftEye.y, pose.rightEye.x, pose.rightEye.y);
+
+        //Red
+        strokeWeight(3);
+        fill(0, 100, 100);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 1.2);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 1.2);
+
+        //Orange
+        noStroke();
+        fill(5, 100, 100);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 1.5);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 1.5);
+
+        //Yellow
+        fill(15, 100, 100);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 2);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 2);
+
+        //Green
+        fill(25, 100, 100);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 2.5);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 2.5);
+
+        //Blue
+        fill(55, 100, 100);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 3);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 3);
+
+        //Purple
+        fill(85, 50, 50);
+        ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 3.5);
+        ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 3.5);
 
         let shoulderWidth;
         let torso;
@@ -42,8 +77,6 @@ function draw() {
 
         //Torso armor
         rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
-        //Left arm armor
-        line(pose.leftShoulder.x, pose.leftShoulder.y, pose.leftElbow.x, pose.leftElbow.y);
 
     }
 }
