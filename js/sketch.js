@@ -62,47 +62,27 @@ function draw() {
 
   // image(video, 0, 0);
   if (pose) {
-    // Right Wrist
-    // let mRightWristX = map(pose.rightWrist.x, 0, 640, 0, width);
-    // let mRightWristY = map(pose.rightWrist.y, 0, 480, 0, height);
-    //
-    // // Left leftEye
-    // let mLeftEyeX = map(pose.leftEye.x, 0, 640, 0, width);
-    // let mLeftEyeY = map(pose.leftEye.y, 0, 480, 0, height);
-    //
-    // // Right eye
-    // let mRightEyeX = map(pose.rightEye.x, 0, 640, 0, width);
-    // let mRightEyeY = map(pose.rightEye.Y, 0, 480, 0, height);
-    //
 
     if (prightWristX != pose.rightWrist.x && prightWristY != pose.rightWrist.y) {
       strokeWeight(3);
       stroke(0);
-      // mpRightWristX = map(prightWristX, 0, 640, 0, width);
-      // mpRightWristY = map(prightWristY, 0, 480, 0, height);
+
       line(pose.rightWrist.x, pose.rightWrist.y, prightWristX, prightWristY);
 
-      //console.log(mRightWristY);
       prightWristX = pose.rightWrist.x;
       prightWristY = pose.rightWrist.y;
     }
 
+    if (pleftWristX != pose.leftWrist.x && pleftWristY != pose.leftWrist.y) {
+      strokeWeight(3);
+      stroke(0);
 
+      line(pose.leftWrist.x, pose.leftWrist.y, pleftWristX, pleftWristY);
 
-    // leftWristX = pose.leftWrist.x;
-    // leftWristY = pose.leftWrist.y;
-    // pleftWristX = leftWristX;
-    // pleftWristY = leftWristY;
-    //
-    // rightWristX = pose.rightWrist.x;
-    // rightWristY = pose.rightWrist.y;
-    // prightWristX = rightWristX;
-    // prightWristY = rightWristY;
+      pleftWristX = pose.leftWrist.x;
+      pleftWristY = pose.leftWrist.y;
+    }
 
-
-    // pg.strokeWeight(3);
-    // pg.stroke(0);
-    // pg.line(leftWristX, leftWristY, pleftWristX, pleftWristY);
     strokeWeight(10);
     stroke(0);
 
