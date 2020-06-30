@@ -2,11 +2,25 @@ let video;
 let poseNet;
 let pose;
 
+let pg;
+
+let leftWristX;
+let leftWristY;
+let pleftWristX;
+let pleftWristY;
+
+let rightWristX;
+let rightWristY;
+let prightWristX;
+let prightWristY;
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     background(255);
     video = createCapture(VIDEO);
     video.hide();
+
+    pg = createGraphics(windowWidth, windowHeight);
 
     poseNet = ml5.poseNet(video, modelLoaded);
 
@@ -30,7 +44,19 @@ function draw() {
 
         strokeWeight(3);
         stroke(0);
-        stroke(pose.leftWrist.x, pose.leftWrist.y);
+
+        leftWristX = pose.leftWrist.x;
+        leftWristY = pose.leftWrist.y;
+        pleftWristX = leftWristX;
+        pleftWristY = leftWristY;
+
+        rightWristX = pose.rightWrist.x;
+        rightWristY = pose.rightWrist.y;
+        prightWristX = rightWristX;
+        prightWristY = rightWristY;
+
+        pg.strokeWeight(3);
+        pg.line(leftWristX, leftWristY, pleftWristX, pleftWristY);
 
         //Glasses
         colorMode(HSB, 100);
