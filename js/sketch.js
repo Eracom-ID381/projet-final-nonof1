@@ -4,6 +4,7 @@ let pose;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    background(255);
     video = createCapture(VIDEO);
     video.hide();
 
@@ -26,6 +27,10 @@ function poseDetected(poses) {
 function draw() {
     image(video, 0, 0);
     if (pose) {
+
+        strokeWeight(3);
+        stroke(0);
+        stroke(pose.leftWrist.x, pose.leftWrist.y);
 
         //Glasses
         colorMode(HSB, 100);
@@ -65,18 +70,17 @@ function draw() {
         ellipse(pose.rightEye.x, pose.rightEye.y, (pose.rightEye.x - pose.leftEye.x) / 3.5);
         ellipse(pose.leftEye.x, pose.leftEye.y, (pose.rightEye.x - pose.leftEye.x) / 3.5);
 
-        let shoulderWidth;
-        let torso;
-        let arm;
-
-        shoulderWidth = pose.rightShoulder.x - pose.leftShoulder.x;
-        torso = pose.leftHip.y - pose.leftShoulder.y;
-
-        arm = pose.leftElbow.y - pose.leftShoulder.y;
-
-
-        //Torso armor
-        rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
+        // let shoulderWidth;
+        // let torso;
+        // let arm;
+        //
+        // shoulderWidth = pose.rightShoulder.x - pose.leftShoulder.x;
+        // torso = pose.leftHip.y - pose.leftShoulder.y;
+        //
+        //
+        // //Torso
+        // fill(85, 50, 50);
+        // rect(pose.leftShoulder.x, pose.leftShoulder.y, shoulderWidth, torso);
 
     }
 }
