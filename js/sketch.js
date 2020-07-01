@@ -87,8 +87,8 @@ function draw() {
         stroke(0);
 
         fill(30, 100, 100);
-        ellipse(pose.leftShoulder.x, pose.leftShoulder.y, (pose.leftShoulder.x - pose.rightShoulder.x) / 3);
-        ellipse(pose.rightShoulder.x, pose.rightShoulder.y, (pose.leftShoulder.x - pose.rightShoulder.x) / 3);
+        ellipse(pose.leftShoulder.x, pose.leftShoulder.y, (pose.leftShoulder.x - pose.rightShoulder.x) / 5);
+        ellipse(pose.rightShoulder.x, pose.rightShoulder.y, (pose.leftShoulder.x - pose.rightShoulder.x) / 5);
 
 
 
